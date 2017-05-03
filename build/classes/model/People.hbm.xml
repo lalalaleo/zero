@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+     <class name="People" table="people">
+        <id name="useId" column="useId" >
+              <generator class="uuid"/>
+        </id>
+        <property name="openId" type="string" column="openId"  />
+        <property name="useNum" type="string" column="useNum"  />
+        <property name="usePass" type="string" column="usePass"  />
+        <property name="useName" type="string" column="useName"  />
+        <property name="useSchool" type="string" column="useSchool"  />
+        <property name="useTab" type="string" column="useTab"  />
+     </class>
+</hibernate-mapping>
+

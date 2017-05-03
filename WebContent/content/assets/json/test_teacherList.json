@@ -1,0 +1,18 @@
+[
+    {
+        "openid" : 123456,
+        "name" : "杨枨",
+        "info" : "曾担任浙江大学计算机学院本科教学指导委员会委员、软件工程专业课程组组长、校内实习及毕业设计基地负责人；浙江大学计算机学院工会副主席。2012年9月调入城市学院计算分院，现任计算机科学与工程学系副主任。",
+        "classes" : ["软件工程导论","软件质量保证","软件需求分析与设计"],
+        "mobile" : 13357102333,
+        "email" : "yangc@zucc.edu.cn"
+    },
+    {
+        "openid" : 234567,
+        "name" : "侯宏仑",
+        "info" : "2002年浙江大学计算机学院人工智能研究所博士研究生毕业。主要从事工业智能化，移动计算，深度计算的项目和开发应用与推广工作。目前是ZUCC-GoogIe-ARM Mobile Technology Labs负责人，杭州市智慧工厂重点实验室负责人，杭州市校企合作实训基地负责人，教育部产学合作ZUCC-SIEMENS GO PLM PROGRAM负责人，PTC ThingWorx IOT Academic Program负责人。",
+        "classes" : ["软件项目管理","人机交互设计"],
+        "mobile" : 13071858629,
+        "email" : "houhl@zucc.edu.cn"
+    }
+]

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+     <class name="Information" table="information">
+        <id name="infId" column="infId" >
+              <generator class="uuid"/>
+        </id>
+        <property name="inf" type="string" column="inf"  />
+        <property name="infTime" type="timestamp" column="infTime"  />
+        <property name="fromId" type="string" column="fromId"  />
+        <property name="toClaId" type="string" column="toClaId"  />
+        <property name="toUseId" type="string" column="toUseId"  />
+     </class>
+</hibernate-mapping>
+

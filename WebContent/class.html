@@ -8,44 +8,47 @@
     <link rel="stylesheet" href="./content/assets/css/default.css">
 </head>
 <body touchstart>
-    <script type="text/javascript" src="./content/assets/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="./content/assets/js/layout.js"></script>
-    <script type="text/javascript" src="./content/assets/js/class.js"></script>  
-    <div class="page" id="SerchClass">
-         <div class="page__hd">
-            <h1 class="page__title">软件工程导论</h1>
-            <p class="page__desc">    将揭示软件工程的实质和内涵，围绕软件工程最基
-                本的核心——“质量和生产率”展开，充分阐述软件工程的系统思想、方法体系和
-                过程运行轨迹，从而帮助读者建立其软件工程的完整而清晰的概念，帮助读
-                者理解学习软件工程的意义和内容，在思想高度上指导软件工程专业的其他课程学习</p>
-         </div>
-         <div class="page__bd">
+    <!--Loading状态-->
+    <div class="page" id="loading">
+        <div class="page__hd">
+            <center><h1 class="page__title">Loading...</h1></center>
+        </div>
+    </div>    
+
+    <div class="weui-footer weui-footer_fixed-bottom">
+        <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+    </div>
+</body>
+
+<script type="text/javascript" src="./content/assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./content/assets/js/layout.js"></script>
+<script type="text/javascript" src="./content/assets/js/class.js"></script>
+
+<script type="text/html" id="classPage">
+    <div class="page" id="class">
+        <div class="page__hd">
+            <h1 class="page__title">[className]</h1>
+            <p class="page__desc">[classInfo]</p>
+        </div>
+
+        <div class="page__bd">
+            <div class="weui-cells__title">教学老师</div>
             <div class="weui-cells">
-                <a class="weui-cell weui-cell_access" href="javascript:;">
-                    <div class="weui-cell__hd"><label class="weui-label">教学老师</label></div>
-                    <div class="weui-cell__bd">
-                    <label class="weui-label">杨枨</label>
-                    </div>
-                    <div class="weui-cell__ft">
-                    </div>
-                </a>
-                <div class="weui-cell">
-                    <div class="weui-cell__hd"><label class="weui-label">上课时间</label></div>
-                    <div class="weui-cell__bd">
-                        <label class="weui-label-in"> 共 16 周</label>
-                        <label class="weui-label-in">周一   9:00-11:25</label>
-                    </div>
-                </div>
+                <input class="input-data__hide" type="text" name="teacherID" id="teacherID" value=[teacher_id] />
+                <a class="weui-cell weui-cell_access" href="javascript:;" id="teacher"><div class="weui-cell__bd"><label class="weui-label">[teacherName]</label></div><div class="weui-cell__ft"></div></a>
             </div>
-         </div>
-         <div class="page__ft">
+            <div class="weui-cells__title">上课时间</div>
+            <div class="weui-cells">
+                <div class="weui-cell"><div class="weui-cell__bd"><label class="weui-label-in">[count]</label></div></div>
+                <div class="weui-cell"><div class="weui-cell__bd"><label class="weui-label-in">[time]</label></div></div>
+            </div>
+        </div>
+
+        <div class="page__ft">
             <div class="weui-btn-area">
                 <a class="weui-btn weui-btn_plain-primary" href="javascript:" id="showTooltips"  type="button">历史消息</a>
             </div>
         </div>
-        <div class="weui-footer weui-footer_fixed-bottom">
-            <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
-        </div>
-    </div>
-</body>
+    </div>    
+</script>
 </html>

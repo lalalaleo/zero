@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+     <class name="Clazz" table="clazz">
+        <id name="claId" column="claId" >
+              <generator class="uuid"/>
+        </id>
+        <property name="subId" type="string" column="subId"  />
+        <property name="claTime" type="string" column="claTime"  />
+        <property name="claAdd" type="string" column="claAdd"  />
+        <property name="claOneTime" type="string" column="claOneTime"  />
+        <property name="claTab" type="string" column="claTab"  />
+     </class>
+</hibernate-mapping>
+
