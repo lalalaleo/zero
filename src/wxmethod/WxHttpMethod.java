@@ -9,7 +9,38 @@ import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
 
+import com.ifp.wechat.entity.AccessToken;
+import com.ifp.wechat.util.WeixinUtil;
+
 public class WxHttpMethod {
+	private static String acessToken = "";
+	private static Long lastAccessTokenEndTime = (long) 0;
+	private static int expireTime = 2000 * 1000;
+	public static String getAcessToken() {
+		return acessToken;
+	}
+	public static void setAcessToken(String acessToken) {
+		WxHttpMethod.acessToken = acessToken;
+	}
+	public static Long getLastAccessTokenEndTime() {
+		return (long)expireTime+lastAccessTokenEndTime;
+	}
+	public static void setLastAccessTokenEndTime(Long lastAccessTokenEndTime) {
+		WxHttpMethod.lastAccessTokenEndTime = lastAccessTokenEndTime;
+	}
+	public static String getNAccessToken(long nowtime) {
+		String access_token;
+		if(WxHttpMethod.getLastAccessTokenEndTime() < nowtime || WxHttpMethod.getAcessToken().equals("")){
+			AccessToken ac = WeixinUtil.getAccessToken("wx7011496372902790", "22448b7ad7edf143d027144f378e2fe6");
+			access_token = ac.getToken();
+			WxHttpMethod.setAcessToken(ac.getToken());
+			WxHttpMethod.setLastAccessTokenEndTime(ac.getExpiresIn()+nowtime);
+			
+		}else{
+			access_token = WxHttpMethod.getAcessToken();
+		}
+		return access_token;
+	}
 	/**
 	 * 向指定URL发送GET方法的请求
 	 * 

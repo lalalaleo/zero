@@ -72,7 +72,7 @@ public class StudentController {
 				mapResult.put("class_info", subjectFind.getSubInfo());
 				mapResult.put("teacher_id", peopleFind.getOpenId());
 				mapResult.put("teacher_name", peopleFind.getUseName());
-				mapResult.put("count", "ȱʧ");
+				mapResult.put("count", "缺失");
 				mapResult.put("time", clazzFind.getClaTime());
 				String jsonResult = JSON.toJSONString(mapResult);
 				printWriter = response.getWriter();
