@@ -27,7 +27,7 @@ public class ClazzDao {
 			session.beginTransaction();
 			Clazz clazzFind = (Clazz) session.get(Clazz.class, clazz.getClaId());
 			if(clazzFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.delete(clazz);
 			session.getTransaction().commit();
 			return true;
@@ -42,7 +42,7 @@ public class ClazzDao {
 			session.beginTransaction();
 			Clazz clazzFind = (Clazz) session.get(Clazz.class, clazz.getClaId());
 			if(clazzFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.update(clazz);
 			session.getTransaction().commit();
 			return true;

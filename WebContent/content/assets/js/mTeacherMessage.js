@@ -55,7 +55,6 @@ var classTools = {
                 data: {
                 	"openId": openid
                 	},
-
                 dataType: "JSON",
                 success: function(data) {
                                 classTools.setList(data);
@@ -220,17 +219,17 @@ var messageTools = {
     },
     "submit":function(){
         var openid = getUrlParam("openid");
-        var addresseeList = "[";
+        var addresseeList = "";
         for(var i in this.list){
             addresseeList = addresseeList+this.list[i].studentID+",";
         }
         addresseeList = addresseeList+"]";
         var message = $("#messageBox").children(".weui-cell__bd").children("textarea").val();
-        var data = "openid="+openid+"&addresseeList="+addresseeList+"&message="+message;
+        var data = "openId="+openid+"&addresseeList="+addresseeList+"&message="+message+"&classid="+classTools.checked;
         //data数据大概是这样的：
         //openid=1111&addresseeList=[001,002,003,]&message=hello world
         $.ajax({
-            url: "",
+            url: "sendmessage.do",
                 type: "post",
                 data: data,
                 dataType: "JSON",

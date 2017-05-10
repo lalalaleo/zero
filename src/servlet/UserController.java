@@ -17,18 +17,27 @@ import com.alibaba.fastjson.JSON;
 
 import dao.*;
 import model.*;
+import wxmethod.WxService;
 
 @Controller
 public class UserController {
 	@RequestMapping(value = "isuser", method = RequestMethod.POST)
 	public void IsUser (People people, HttpServletRequest request, HttpServletResponse response){
 		PeopleDao peoDao = new PeopleDao();
+		WxService wx = new WxService();
 		PrintWriter printWriter = null;
 
 		try {
 			Map<String, Object> mapResult = new HashMap<String, Object>();
-			if(peoDao.isUser(people)){
+			People peopleFind = peoDao.isUser(people);
+			if(peopleFind != null){
 				mapResult.put("result", "Yes");
+				if(peopleFind.getUseTab().equals("student")){
+					wx.setUserTag(peopleFind.getOpenId(), 109);
+				}
+				else if(peopleFind.getUseTab().equals("teacher")){
+					wx.setUserTag(peopleFind.getOpenId(), 111);
+				}
 			}
 			else{
 				mapResult.put("result", "No");

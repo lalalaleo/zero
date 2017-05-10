@@ -32,7 +32,7 @@ public class WxService {
 		return result;
 	}
 	/*设置用户的标签  tagid为标签id学生为109　老师为111*/
-	public String setUserTag(String useropenid,int tagid) {
+	public String setUserTag(String useropenid, int tagid) {
 		JSONObject userSetTag = new JSONObject();
 		String[] userList = {useropenid};
 		userSetTag.put("openid_list",userList );
@@ -43,7 +43,7 @@ public class WxService {
 		return result;
 	}
 	/*删除对应标签下的对用用户 因为用户可以用过多个标签 避免冲突 */
-	public String deletUserTag(String useropenid,int tagid) {
+	public String deletUserTag(String useropenid, int tagid) {
 		JSONObject userSetTag = new JSONObject();
 		String[] userList = { useropenid};
 		userSetTag.put("openid_list",userList );
@@ -54,7 +54,7 @@ public class WxService {
 		return result;
 	}
 	/*发送服务信息 第一个参数为接收者id 第二个参数为news的标题 第三个参数为news的内容 url为跳转的url地址*/
-	public String SendCustomerServiceInfo(String openid,String title,String content,String url) {
+	public String sendCustomerServiceInfo(String openid, String title, String content, String url) {
 		List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
 		JSONObject map1 = new JSONObject(true);
 		map1.put("touser",openid);

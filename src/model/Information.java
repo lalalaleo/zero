@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Information {
 	private String infId = "";
 	private String inf = "";
-	private Timestamp infTime = Timestamp.valueOf("1970-01-02 00:00:00");
+	private Timestamp infTime;
 	private String fromId = "";
 	private String toClaId = "";
 	private String toUseId = "";

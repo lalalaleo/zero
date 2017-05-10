@@ -27,7 +27,7 @@ public class ChoiceDao {
 			session.beginTransaction();
 			Choice choiceFind = (Choice) session.get(Choice.class, choice.getChoId());
 			if(choiceFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.delete(choice);
 			session.getTransaction().commit();
 			return true;
@@ -42,7 +42,7 @@ public class ChoiceDao {
 			session.beginTransaction();
 			Choice choiceFind = (Choice) session.get(Choice.class, choice.getChoId());
 			if(choiceFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.update(choice);
 			session.getTransaction().commit();
 			return true;

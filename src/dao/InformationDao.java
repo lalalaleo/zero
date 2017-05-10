@@ -27,7 +27,7 @@ public class InformationDao {
 			session.beginTransaction();
 			Information infoFind = (Information) session.get(Information.class, info.getInfId());
 			if(infoFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.delete(info);
 			session.getTransaction().commit();
 			return true;
@@ -42,7 +42,7 @@ public class InformationDao {
 			session.beginTransaction();
 			Information infoFind = (Information) session.get(Information.class, info.getInfId());
 			if(infoFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.update(info);
 			session.getTransaction().commit();
 			return true;

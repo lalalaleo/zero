@@ -27,7 +27,7 @@ public class PeopleDao {
 			session.beginTransaction();
 			People peopleFind = (People) session.get(People.class, people.getUseId());
 			if(peopleFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.delete(people);
 			session.getTransaction().commit();
 			return true;
@@ -42,7 +42,7 @@ public class PeopleDao {
 			session.beginTransaction();
 			People peopleFind = (People) session.get(People.class, people.getUseId());
 			if(peopleFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.update(people);
 			session.getTransaction().commit();
 			return true;
@@ -110,9 +110,9 @@ public class PeopleDao {
 		}
 	}
 
-	public Boolean isUser(People people) throws Exception{
+	public People isUser(People people) throws Exception{
 		try {
-			Boolean result = false;
+			People peopleFind = null;
 			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 			String sql = "SELECT DISTINCT people.* FROM people "
@@ -123,13 +123,12 @@ public class PeopleDao {
 			query.setString(2, people.getUseNum());
 			List<People> peopleList = query.list();
 			if(peopleList.size() == 1){
-				People peopleFind = peopleList.get(0);
+				peopleFind = peopleList.get(0);
 				peopleFind.setOpenId(people.getOpenId());
 				session.update(peopleFind);
-				result = true;
 			}
 			session.getTransaction().commit();
-			return result;
+			return peopleFind;
 		} catch (Exception ex) {
 			throw new Exception(ex);
 		}
