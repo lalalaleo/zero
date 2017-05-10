@@ -44,6 +44,7 @@ function getUrlParam(name) {
     }
 ]
 */
+// 顺便帮忙测试一下，课程页面的历史消息
 function getUrlData(){
     var openid = getUrlParam("openid");
     var classid = getUrlParam("classid");

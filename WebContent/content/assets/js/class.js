@@ -71,3 +71,7 @@ function initPage(){
 function goErrorPage(){
     window.location.href="./state.html?state=1&info=1";
 }
+// 历史消息页面
+function messageHistory(){
+    window.location.href="./messageHistory.html?openid="+getUrlParam("openid")+"&classid="+getUrlParam("classid");
+}
