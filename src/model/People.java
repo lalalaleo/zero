@@ -4,6 +4,7 @@ public class People {
 	private String useId = "";
 	private String openId = "";
 	private String useNum = "";
+	private String identity = "";
 	private String usePass = "";
 	private String useName = "";
 	private String useSchool = "";
@@ -26,6 +27,12 @@ public class People {
 	}
 	public void setUseNum(String useNum) {
 		this.useNum = useNum;
+	}
+	public String getIdentity() {
+		return identity;
+	}
+	public void setIdentity(String identity) {
+		this.identity = identity;
 	}
 	public String getUsePass() {
 		return usePass;

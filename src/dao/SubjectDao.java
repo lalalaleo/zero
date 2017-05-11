@@ -27,7 +27,7 @@ public class SubjectDao {
 			session.beginTransaction();
 			Subject subjectFind = (Subject) session.get(Subject.class, subject.getSubId());
 			if(subjectFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.delete(subject);
 			session.getTransaction().commit();
 			return true;
@@ -42,7 +42,7 @@ public class SubjectDao {
 			session.beginTransaction();
 			Subject subjectFind = (Subject) session.get(Subject.class, subject.getSubId());
 			if(subjectFind == null) 
-				throw new Exception("不存在");
+				throw new Exception("娌℃湁鏁版嵁");
 			session.update(subject);
 			session.getTransaction().commit();
 			return true;
@@ -65,7 +65,7 @@ public class SubjectDao {
 		}
 	}
 
-	public Subject find (Subject subject) throws Exception{
+	public Subject find(Subject subject) throws Exception{
 		try {
 			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
@@ -87,6 +87,26 @@ public class SubjectDao {
 			List<Subject> subjectList = query.list();
 			session.getTransaction().commit();
 			return subjectList;
+		} catch (Exception ex) {
+			throw new Exception(ex);
+		}
+	}
+	
+	public Subject findByClaId(String claId) throws Exception{
+		try {
+			Subject subjectFind = null;
+			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+			String sql = "SELECT DISTINCT subject.* FROM subject, clazz "
+					+ "WHERE subject.subId = clazz.subId AND clazz.claId = ? ";
+			Query query = session.createSQLQuery(sql).addEntity(Subject.class); 
+			query.setString(0, claId);
+			List<Subject> subjectList = query.list();
+			session.getTransaction().commit();
+			if(subjectList.size() == 1){
+				subjectFind = subjectList.get(0);
+			}
+			return subjectFind;
 		} catch (Exception ex) {
 			throw new Exception(ex);
 		}
