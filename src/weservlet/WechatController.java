@@ -73,7 +73,7 @@ public class WechatController {
 						article.setTitle("发送消息");
 						article.setDescription("点此进行消息发送");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/mTeacherMessage.html?openid="+requestMap.get("openid"));
+						article.setUrl("http://lalalaleo.com/wechat/mTeacherMessage.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -84,7 +84,7 @@ public class WechatController {
 						article.setTitle("历史消息");
 						article.setDescription("点此进行查看历史消息");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/mTeacherMessage.html?openid="+requestMap.get("openid")+"&classid=all");
+						article.setUrl("http://lalalaleo.com/wechat/mTeacherMessage.html?openid="+requestMap.get("FromUserName")+"&classid=all");
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -97,7 +97,7 @@ public class WechatController {
 						article.setTitle("查看我的课程");
 						article.setDescription("点此查看我的课程");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/schoolTimeTable.html?openid="+requestMap.get("openid"));
+						article.setUrl("http://lalalaleo.com/wechat/schoolTimeTable.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -109,7 +109,7 @@ public class WechatController {
 						article.setTitle("查看历史信息");
 						article.setDescription("点此查看我的历史信息");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/mTeacherMessage.html?openid="+requestMap.get("openid")+"&classid=all");
+						article.setUrl("http://lalalaleo.com/wechat/mTeacherMessage.html?openid="+requestMap.get("FromUserName")+"&classid=all");
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -121,7 +121,7 @@ public class WechatController {
 						article.setTitle("查看我的教师");
 						article.setDescription("点此查看我的教师");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/teacherList.html?openid="+requestMap.get("openid"));
+						article.setUrl("http://lalalaleo.com/wechat/teacherList.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -133,7 +133,7 @@ public class WechatController {
 						article.setTitle("查看我的课表");
 						article.setDescription("点此查看我的课表");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/schoolTimeTable.html?openid="+requestMap.get("openid"));
+						article.setUrl("http://lalalaleo.com/wechat/schoolTimeTable.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -146,7 +146,7 @@ public class WechatController {
 						article.setTitle("绑定申请");
 						article.setDescription("点此进行绑定");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/wechat/binding.html?openid="+requestMap.get("openid"));
+						article.setUrl("http://lalalaleo.com/wechat/binding.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
