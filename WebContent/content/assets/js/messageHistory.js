@@ -41,7 +41,9 @@ function getUrlParam(name) {
         "sender":"彭斌",
         "content":"近期将召开Android开发竞赛，希望同学们积极参加！",
         "time":"2017.5.10 16:56"
+
 type: "post",
+
     }
 ]
 */
