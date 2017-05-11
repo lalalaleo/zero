@@ -91,3 +91,7 @@ div {
 .ago-class p {
 	color:#888;
 }
+.default_text {
+	color:black;
+	text-align: left;
+}
