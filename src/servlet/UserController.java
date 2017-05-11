@@ -43,6 +43,7 @@ public class UserController {
 				mapResult.put("result", "No");
 			}
 			String jsonResult = JSON.toJSONString(mapResult);
+			response.setCharacterEncoding("UTF-8");
 			printWriter = response.getWriter();
 			printWriter.print(jsonResult);
 		} catch (Exception e) {

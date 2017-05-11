@@ -36,6 +36,7 @@ public class StudentController {
 					listResult.add(map);
 				}
 				String jsonResult = JSON.toJSONString(listResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
@@ -75,6 +76,7 @@ public class StudentController {
 				mapResult.put("count", "缺失");
 				mapResult.put("time", clazzFind.getClaTime());
 				String jsonResult = JSON.toJSONString(mapResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
@@ -108,6 +110,7 @@ public class StudentController {
 					listResult.add(map);
 				}
 				String jsonResult = JSON.toJSONString(listResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}

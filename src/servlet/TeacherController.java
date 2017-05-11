@@ -44,6 +44,7 @@ public class TeacherController {
 				mapResult.put("mobile", "缺失");
 				mapResult.put("email", "缺失");
 				String jsonResult = JSON.toJSONString(mapResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
@@ -77,6 +78,7 @@ public class TeacherController {
 					listResult.add(map);
 				}
 				String jsonResult = JSON.toJSONString(listResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
@@ -108,6 +110,7 @@ public class TeacherController {
 					listResult.add(map);
 				}
 				String jsonResult = JSON.toJSONString(listResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
@@ -147,6 +150,7 @@ public class TeacherController {
 				}
 				mapResult.put("result", "Yes");
 				String jsonResult = JSON.toJSONString(mapResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
@@ -190,6 +194,7 @@ public class TeacherController {
 					listResult.add(map);
 				}
 				String jsonResult = JSON.toJSONString(listResult);
+				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
