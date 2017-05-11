@@ -68,7 +68,7 @@ public class WechatController {
 						textMessage.setContent(respContent);
 						respMessage = MessageService.bulidSendMessage(textMessage,
 								ConstantWeChat.RESP_MESSAGE_TYPE_TEXT);
-					}else if(eventKey.equals("tacherg1")){
+					}else if(eventKey.equals("teachaerg1")){
 						Article article = new Article();
 						article.setTitle("发送消息");
 						article.setDescription("点此进行消息发送");
@@ -79,7 +79,7 @@ public class WechatController {
 						newsMessage.setArticles(articleList);
 						respMessage = MessageService.bulidSendMessage(newsMessage,
 								ConstantWeChat.RESP_MESSAGE_TYPE_NEWS);
-					}else if (eventKey.equals("teacherg2")) {
+					}else if (eventKey.equals("teachaerg2")) {
 						Article article = new Article();
 						article.setTitle("历史消息");
 						article.setDescription("点此进行查看历史消息");
@@ -90,7 +90,7 @@ public class WechatController {
 						newsMessage.setArticles(articleList);
 						respMessage = MessageService.bulidSendMessage(newsMessage,
 								ConstantWeChat.RESP_MESSAGE_TYPE_NEWS);
-					}else if (eventKey.equals("teacherg3")) {
+					}else if (eventKey.equals("teachaerg3")) {
 						/*此处需要classid*/
 						String classid = new String();
 						Article article = new Article();
