@@ -56,11 +56,12 @@ public class WechatController {
 			}else if (msgType.equals(ConstantWeChat.REQ_MESSAGE_TYPE_EVENT)) {
 				String eventType = requestMap.get("Event");
 				if (eventType.equals(ConstantWeChat.EVENT_TYPE_SUBSCRIBE)) {
-					respContent = "欢迎关注微信号";
+					respContent = "欢迎关注本微信号";
 					StringBuffer contentMsg = new StringBuffer();
-					contentMsg.append("按帮助跳出帮助选项").append("\n\n");
+					contentMsg.append("按帮助跳出帮助选项").append("\n");
 					contentMsg.append("绑定进行用户绑定").append("\n");
-					
+					contentMsg.append("绑定成功后界面会更改，因为微信延迟问题可能要几分钟时间才更新显示").append("\n");
+					contentMsg.append("绑定成功后帮助信息也会变").append("\n");
 					respContent = respContent + contentMsg.toString();
 					textMessage.setContent(respContent);
 					respMessage = MessageService.bulidSendMessage(textMessage,
@@ -77,15 +78,49 @@ public class WechatController {
 						textMessage.setContent(respContent);
 						respMessage = MessageService.bulidSendMessage(textMessage,
 								ConstantWeChat.RESP_MESSAGE_TYPE_TEXT);
-					}else if (eventKey.equals("help") || eventKey.equals("teacherhelp1") || eventKey.equals("studenthelp")) {
-						respContent = "此为帮助信息！\n";
+					}else if (eventKey.equals("help")) {
+						respContent = "此为未注册用户帮助信息！\n";
 						/*-把文本内容放到了Content中具体为 <Content><![CDATA[内容]]></Content>-*/
 						StringBuffer contentMsg = new StringBuffer();
-						contentMsg.append("点击绑定后成为正式用户享受更多服务").append("\n\n");
-						contentMsg.append("教师功能包括：群发信息给学生、查看历史信息、查看作为教师的课程").append("\n");
-						contentMsg.append("学生功能包括：查看历史信息、查看课表、查看教师").append("\n");
-						contentMsg.append("教师群发信息后会自动推送给学生").append("\n");
-						contentMsg.append("查看信息会收到一个文字信息，点击后进入页面").append("\n");
+						contentMsg.append("点击绑定后作为学生或者教师，正常使用本微信号").append("\n");
+						contentMsg.append("点击绑定后菜单未出现变更请耐心等待，微信有几分钟延迟").append("\n");
+						contentMsg.append("搜索课程名查不到课程的原因：您并为认证为学生或者教师").append("\n");
+						/*-添加到回复中-*/
+						respContent = respContent + contentMsg.toString();
+						textMessage.setContent(respContent);
+						respMessage = MessageService.bulidSendMessage(textMessage,
+								ConstantWeChat.RESP_MESSAGE_TYPE_TEXT);
+					}else if(eventKey.equals("teacherhelp1")){
+						respContent = "此为教师用户帮助信息！\n";
+						/*-把文本内容放到了Content中具体为 <Content><![CDATA[内容]]></Content>-*/
+						StringBuffer contentMsg = new StringBuffer();
+						contentMsg.append("教师功能有以下三个功能选项").append("\n");
+						contentMsg.append("1：发送信息，填写信息后自动推送给学生连接的通知").append("\n");
+						contentMsg.append("2：历史信息，点击即可收到历史信息页面连接的通知").append("\n");
+						contentMsg.append("3：我的课程，点击可收到执教的课程信息页面连接的通知").append("\n");
+						contentMsg.append("直接输入课程名称搜索课程信息").append("\n");
+						contentMsg.append("查看信息会收到一个信息，点击后进入相应页面").append("\n");
+						contentMsg.append("搜索课程名查不到课程的话有2种原因：").append("\n");
+						contentMsg.append("1：您输入的名称不完全").append("\n");
+						contentMsg.append("2：并无此课程").append("\n");
+						/*-添加到回复中-*/
+						respContent = respContent + contentMsg.toString();
+						textMessage.setContent(respContent);
+						respMessage = MessageService.bulidSendMessage(textMessage,
+								ConstantWeChat.RESP_MESSAGE_TYPE_TEXT);
+					}else if(eventKey.equals("studenthelp")){
+						respContent = "此为学生帮助信息！\n";
+						/*-把文本内容放到了Content中具体为 <Content><![CDATA[内容]]></Content>-*/
+						StringBuffer contentMsg = new StringBuffer();
+						contentMsg.append("学生功能有以下三个功能选项").append("\n");
+						contentMsg.append("1：历史信息，点击即可收到历史信息页面连接的通知").append("\n");
+						contentMsg.append("2：我的教师： 收到有教师信息的页面连接的通知").append("\n");
+						contentMsg.append("3：我的课表，收到有您课程信息的页面连接的通知").append("\n");
+						contentMsg.append("学生可以直接输入课程名称搜索课程信息").append("\n");
+						contentMsg.append("查看信息会收到一个信息，点击后进入相应页面").append("\n");
+						contentMsg.append("搜索课程名查不到课程的话有2种原因：").append("\n");
+						contentMsg.append("1：您输入的名称不完全").append("\n");
+						contentMsg.append("2：并无此课程").append("\n");
 						/*-添加到回复中-*/
 						respContent = respContent + contentMsg.toString();
 						textMessage.setContent(respContent);

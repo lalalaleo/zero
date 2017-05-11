@@ -139,7 +139,7 @@ public class PeopleDao {
 			Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 			String sql = "SELECT DISTINCT people.* FROM people, choice "
-					+ "WHERE people.useId = choice.useId AND choice.claId = ? ";
+					+ "WHERE people.useId = choice.useId AND choice.claId = ? AND people.openId != '' ";
 			Query query = session.createSQLQuery(sql).addEntity(People.class); 
 			query.setString(0, claId);
 			List<People> peopleList = query.list();

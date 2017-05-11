@@ -39,10 +39,10 @@ public class TeacherController {
 				Map<String, Object> mapResult = new HashMap<String, Object>();
 				mapResult.put("openid", peopleFind.getOpenId());
 				mapResult.put("name", peopleFind.getUseName());
-				mapResult.put("info", "缺失");
+				mapResult.put("info", "未设置");
 				mapResult.put("classes", subNameList);
-				mapResult.put("mobile", "缺失");
-				mapResult.put("email", "缺失");
+				mapResult.put("mobile", "未设置");
+				mapResult.put("email", "未设置");
 				String jsonResult = JSON.toJSONString(mapResult);
 				response.setCharacterEncoding("UTF-8");
 				printWriter = response.getWriter();
