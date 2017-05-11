@@ -84,7 +84,7 @@ public class WechatController {
 						article.setTitle("历史消息");
 						article.setDescription("点此进行查看历史消息");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/mTeacherMessage.html?openid="+requestMap.get("FromUserName")+"&classid=all");
+						article.setUrl("http://lalalaleo.com/wechat/messageHistory.html?openid="+requestMap.get("FromUserName")+"&classid=all");
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -97,7 +97,7 @@ public class WechatController {
 						article.setTitle("查看我的课程");
 						article.setDescription("点此查看我的课程");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/schoolTimeTable.html?openid="+requestMap.get("FromUserName"));
+						article.setUrl("http://lalalaleo.com/wechat/schoolTimetable.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -109,7 +109,7 @@ public class WechatController {
 						article.setTitle("查看历史信息");
 						article.setDescription("点此查看我的历史信息");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/mTeacherMessage.html?openid="+requestMap.get("FromUserName")+"&classid=all");
+						article.setUrl("http://lalalaleo.com/wechat/messageHistory.html?openid="+requestMap.get("FromUserName")+"&classid=all");
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -133,7 +133,7 @@ public class WechatController {
 						article.setTitle("查看我的课表");
 						article.setDescription("点此查看我的课表");
 						article.setPicUrl("");
-						article.setUrl("http://lalalaleo.com/wechat/schoolTimeTable.html?openid="+requestMap.get("FromUserName"));
+						article.setUrl("http://lalalaleo.com/wechat/schoolTimetable.html?openid="+requestMap.get("FromUserName"));
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);

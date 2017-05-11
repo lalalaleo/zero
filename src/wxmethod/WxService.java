@@ -15,7 +15,7 @@ public class WxService {
 	/*根据输入的json格式字符串申请创建菜单 并返回是否成功*/
 	public boolean createMenu(String jsonMenu) {
 		String access_token = WeixinUtil.getAccessToken("wx7011496372902790", "22448b7ad7edf143d027144f378e2fe6").getToken();
-		String result = WxHttpMethod.sendPost("https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token="+access_token, jsonMenu);
+		String result =  WxHttpMethod.sendPost("https://api.weixin.qq.com/cgi-bin/menu/addconditional?access_token="+access_token, jsonMenu);
 		JSONObject t = JSON.parseObject(result);
 		if(t.get("errcode").equals(0)){
 			return true;
