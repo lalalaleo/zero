@@ -19,7 +19,7 @@ function getUrlParam(name) {
 // 获取url中数据
 function getUrlData(){
     var openid = getUrlParam("openid");
-    if(openid==null || openid=="") goErrorPage();
+    if(openid==null || openid=="") goStatePage(2,2);
     else{
         loadBindingPage(openid);
     }
@@ -44,7 +44,9 @@ function getSchoolList(){
             success: function(data) {
                             screenSchoolList(data);
                         },
-            error: function() {alert("error");}
+            error: function() {
+                goStatePage(3,1);
+            }
         });
 }
 // 筛选有效省份、市县、学校
@@ -149,9 +151,11 @@ function formSubmit(){
             	},
             dataType: "JSON",
             success: function(data) {
-                            goErrorPage();  //此处状态为成功，并非异常状态，具体内容待完善。 
+                            goStatePage(1,2);  //此处状态为成功，并非异常状态，具体内容待完善。 
                         },
-            error: function() {alert("error");}
+            error: function() {
+                goStatePage(3,1);
+            }
         });
 }
 // 异常信息提示
@@ -166,7 +170,7 @@ function showWarnInfo(e,info){
         } ,2000);
     }
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }

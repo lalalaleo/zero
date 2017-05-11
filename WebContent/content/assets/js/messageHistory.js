@@ -51,8 +51,8 @@ type: "post",
 function getUrlData(){
     var openid = getUrlParam("openid");
     var classid = getUrlParam("classid");
-    if((openid == null) || (openid == "")) goErrorPage();
-    else if((classid == null) || (classid == "")) goErrorPage();
+    if((openid == null) || (openid == "")) goStatePage(2,2);
+    else if((classid == null) || (classid == "")) goStatePage(3,2);
     else{
         $.ajax({
         		url: "history.do",
@@ -65,7 +65,9 @@ function getUrlData(){
                 success: function(data) {
                                 loadMessageHistoryPage(data);
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     }
 }
@@ -92,7 +94,7 @@ function initPage(data){
         $("#messageHistory").children(".page__bd").append(source);
     }
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }

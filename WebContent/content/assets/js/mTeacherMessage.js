@@ -26,7 +26,7 @@ function getUrlParam(name) {
 // 获取url中的数据
 function getUrlData(){
      var openid = getUrlParam("openid");
-     if((openid == null) || (openid == "")) goErrorPage();
+     if((openid == null) || (openid == "")) goStatePage(2,2);
     else{
         classTools.getList(openid);
     }
@@ -61,7 +61,9 @@ var classTools = {
                                 classTools.loadPage();
                                 classTools.initPage();
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     },
     "setList":function(data){
@@ -125,7 +127,9 @@ var studentTools = {
                                 studentTools.loadPage();
                                 studentTools.initPage();
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     },
     "setList":function(data){
@@ -234,13 +238,15 @@ var messageTools = {
                 data: data,
                 dataType: "JSON",
                 success: function(data) {
-                    goErrorPage();
+                    goStatePage(0,1);
                 },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     }
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }

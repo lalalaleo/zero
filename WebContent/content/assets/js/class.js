@@ -36,8 +36,8 @@ function getUrlParam(name) {
 function getUrlData(){
     var openid = getUrlParam("openid");
     var classid = getUrlParam("classid");
-    if((openid == null) || (openid == "")) goErrorPage();
-    else if((classid == null) || (classid == "")) goErrorPage();
+    if((openid == null) || (openid == "")) goStatePage(2,2);
+    else if((classid == null) || (classid == "")) goStatePage(3,2);
     else{
         $.ajax({
             url: "findclazz.do",
@@ -49,7 +49,9 @@ function getUrlData(){
                 success: function(data) {
                                 loadClassPage(data);
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     }
 }
@@ -67,10 +69,11 @@ function initPage(){
     var openid=getUrlParam("openid");
     $("#teacher").attr("href","./teacher.html?openid="+openid+"&teacherid="+$("#teacherID").val());
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }
+
 // 历史消息页面
 function messageHistory(){
     window.location.href="./messageHistory.html?openid="+getUrlParam("openid")+"&classid="+getUrlParam("classid");

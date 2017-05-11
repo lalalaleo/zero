@@ -41,8 +41,8 @@ function getUrlParam(name) {
 function getUrlData(){
     var openid = getUrlParam("openid");
     var teacherid = getUrlParam("teacherid");
-    if(openid==null || openid=="") goErrorPage();
-    else if(teacherid==null || teacherid=="") goErrorPage();
+    if(openid==null || openid=="") goStatePage(2,2);
+    else if(teacherid==null || teacherid=="") goStatePage(3,2);
     else{
         $.ajax({
                 url: "findteacher.do",
@@ -54,7 +54,9 @@ function getUrlData(){
                 success: function(data) {
                                 loadTeacherPage(data);
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
             });
     }
 }
@@ -70,16 +72,13 @@ function getTeacherInfo(JSONObject){
 // 加载教师信息页面
 function loadTeacherPage(JSONObject){
     getTeacherInfo(JSONObject);
-    if(teacher.openid==null || teacher.name==null) goErrorPage();
-    else {
-        var html = document.getElementById("teacherPage").innerHTML;
-        var source = html.replace(reg, function (node, key) { return {}[key]; });
-        $("#loading").remove();
-        $("title").text(teacher.name);
-        $(document.body).append(source);
-        createNewPage();
-        initPage()
-    };
+    var html = document.getElementById("teacherPage").innerHTML;
+    var source = html.replace(reg, function (node, key) { return {}[key]; });
+    $("#loading").remove();
+    $("title").text(teacher.name);
+    $(document.body).append(source);
+    createNewPage();
+    initPage()
 }
 // 教师信息页面初始化
 function initPage(){
@@ -118,8 +117,7 @@ function switchAllTeacherInfo(){
         }
     }
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }
-
