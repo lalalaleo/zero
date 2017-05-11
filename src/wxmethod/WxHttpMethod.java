@@ -34,7 +34,7 @@ public class WxHttpMethod {
 			AccessToken ac = WeixinUtil.getAccessToken("wx7011496372902790", "22448b7ad7edf143d027144f378e2fe6");
 			access_token = ac.getToken();
 			WxHttpMethod.setAcessToken(ac.getToken());
-			WxHttpMethod.setLastAccessTokenEndTime(ac.getExpiresIn()+nowtime);
+			WxHttpMethod.setLastAccessTokenEndTime(nowtime);
 			
 		}else{
 			access_token = WxHttpMethod.getAcessToken();

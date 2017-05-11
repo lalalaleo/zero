@@ -41,6 +41,7 @@ function getUrlParam(name) {
         "sender":"彭斌",
         "content":"近期将召开Android开发竞赛，希望同学们积极参加！",
         "time":"2017.5.10 16:56"
+type: "post",
     }
 ]
 */
@@ -52,9 +53,12 @@ function getUrlData(){
     else if((classid == null) || (classid == "")) goErrorPage();
     else{
         $.ajax({
-            url: "./content/assets/json/test_message_history.json",
-                type: "get",
-                data: "openid="+openid+"&classid"+classid,
+        		url: "history.do",
+        		type: "post",
+                data: {
+                	"openId": openid,
+                	"classid": classid
+                	},
                 dataType: "JSON",
                 success: function(data) {
                                 loadMessageHistoryPage(data);

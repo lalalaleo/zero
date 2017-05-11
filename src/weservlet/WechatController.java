@@ -84,7 +84,7 @@ public class WechatController {
 						article.setTitle("历史消息");
 						article.setDescription("点此进行查看历史消息");
 						article.setPicUrl("");
-						article.setUrl("");
+						article.setUrl("http://lalalaleo.com/wechat/wechat/mTeacherMessage.html?openid="+requestMap.get("openid")+"&classid=all");
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);
@@ -109,7 +109,7 @@ public class WechatController {
 						article.setTitle("查看历史信息");
 						article.setDescription("点此查看我的历史信息");
 						article.setPicUrl("");
-						article.setUrl("");
+						article.setUrl("http://lalalaleo.com/wechat/wechat/mTeacherMessage.html?openid="+requestMap.get("openid")+"&classid=all");
 						articleList.add(article);
 						newsMessage.setArticleCount(articleList.size());
 						newsMessage.setArticles(articleList);

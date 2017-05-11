@@ -143,10 +143,53 @@ public class TeacherController {
 					inf.setToUseId(addresseeList.get(i));
 					inf.setToClaId(claId);
 					infDao.creat(inf);
-					wx.sendCustomerServiceInfo(addresseeList.get(i), subjectFind.getSubName() + "-" + peopleFind.getUseName(), message, "");
+					wx.sendTemplateInfo(addresseeList.get(i), "", "", peopleFind.getUseName(), subjectFind.getSubName(), message);
 				}
 				mapResult.put("result", "Yes");
 				String jsonResult = JSON.toJSONString(mapResult);
+				printWriter = response.getWriter();
+				printWriter.print(jsonResult);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (printWriter != null) {
+				printWriter.flush();
+				printWriter.close();
+			}
+		}
+	}
+	
+	@RequestMapping(value = "history", method = RequestMethod.POST)
+	public void History (People people, @RequestParam(value="classid")String claId, HttpServletRequest request, HttpServletResponse response){
+		InformationDao infDao = new InformationDao();
+		PrintWriter printWriter = null;
+		
+		try {
+			List<Map<String, Object>> listResult = new ArrayList<Map<String, Object>>();
+			List infoList;
+			if(people != null){
+				if(claId.equals("all")){
+					infoList = infDao.listByOpenId(people.getOpenId());	
+				}
+				else{
+					infoList = infDao.listByOpenIdClaId(people.getOpenId(), claId);	
+				}
+				for(int i = 0; i < infoList.size(); i++){
+					Object[] objects = (Object[]) infoList.get(i);
+					Information infFind = (Information) objects[0];
+					Subject subFind = (Subject) objects[1];
+					People peoFind = (People) objects[2];
+					Map<String, Object> map = new HashMap<String, Object>();
+					map.put("msgid", infFind.getInfId());
+					map.put("class", subFind.getSubName());
+					map.put("sender", peoFind.getUseName());
+					map.put("content", infFind.getInf());
+					map.put("time", infFind.getInfTime().toString());
+					listResult.add(map);
+				}
+				String jsonResult = JSON.toJSONString(listResult);
 				printWriter = response.getWriter();
 				printWriter.print(jsonResult);
 			}
