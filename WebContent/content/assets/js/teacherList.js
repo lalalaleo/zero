@@ -34,7 +34,7 @@ function getUrlParam(name) {
 */
 function getUrlData(){
     var openid = getUrlParam("openid");
-    if(openid==null || openid=="") goErrorPage();
+    if(openid==null || openid=="") goStatePage(2,2);
     else{
         $.ajax({
                 url: "listhavetea.do",
@@ -46,21 +46,20 @@ function getUrlData(){
                 success: function(data) {
                                 loadTeacherListPage(data);
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
             });
     }
 }
 //加载教师列表页面
 function loadTeacherListPage(data){
-    if(data==null) goErrorPage();
-    else{
         var html = document.getElementById("teacherListPage").innerHTML;
         var source = html.replace(reg,function (node, key) { return {}[key]; });
         $("#loading").remove();
         $(document.body).append(source);
         createNewPage();
         initPage(data);
-    }
 }
 // 初始化页面
 function initPage(data){
@@ -79,7 +78,7 @@ function goTeacherPage(argument) {
     var teacherid = $(argument).children(".input-data__hide").val();
     window.location.href="./teacher.html?openid="+openid+"&teacherid="+teacherid;
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }

@@ -48,7 +48,7 @@ function getUrlParam(name) {
 */
 function getUrlData(){
     var openid = getUrlParam("openid");
-    if((openid == null) || (openid == "")) goErrorPage();
+    if((openid == null) || (openid == "")) goStatePage(2,2);
     else{
         $.ajax({
             url: "clazztable.do",
@@ -60,7 +60,9 @@ function getUrlData(){
                 success: function(data) {
                                 loadSchoolTimeTablePage(data);
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     }
 }
@@ -213,7 +215,7 @@ function tabCilck(argument){
         $("#tabPanelWeek").css( "display","none");
     }
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }
