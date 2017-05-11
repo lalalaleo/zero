@@ -16,6 +16,9 @@ import com.ifp.wechat.entity.message.resp.TextMessage;
 import com.ifp.wechat.service.MessageService;
 import com.ifp.wechat.util.MessageUtil;
 
+import dao.ClazzDao;
+import model.Clazz;
+
 public class WechatController {
 	public static Logger log = Logger.getLogger(WechatController.class); 
 
@@ -29,8 +32,28 @@ public class WechatController {
 			String respContent = "";
 			List<Article> articleList = new ArrayList<Article>();
 			List<TextMessage> textList = new ArrayList<TextMessage>();
-			
-			if (msgType.equals(ConstantWeChat.REQ_MESSAGE_TYPE_EVENT)) {
+			if(msgType.equals(ConstantWeChat.REQ_MESSAGE_TYPE_TEXT)){
+				String openid = requestMap.get("FromUserName");
+				String content = requestMap.get("Content");
+				ClazzDao clazzDao = new ClazzDao();
+				List<Clazz> listc = clazzDao.listBySubName(openid, content);
+				Article article = new Article();
+				article.setTitle("您的课程查询信息");
+				if(listc.size() == 0){
+					article.setDescription("无此课程信息");
+					article.setPicUrl("");
+					article.setUrl("");
+				}else{
+					Clazz c = listc.get(0);
+					article.setDescription("点击查看您的查询结果");
+					article.setPicUrl("");
+					article.setUrl("http://lalalaleo.com/wechat/class.html?openid="+openid+"&classid="+c.getClaId());
+				}
+				articleList.add(article);
+				newsMessage.setArticleCount(articleList.size());
+				newsMessage.setArticles(articleList);
+				respMessage = MessageService.bulidSendMessage(newsMessage, ConstantWeChat.RESP_MESSAGE_TYPE_NEWS);
+			}else if (msgType.equals(ConstantWeChat.REQ_MESSAGE_TYPE_EVENT)) {
 				String eventType = requestMap.get("Event");
 				if (eventType.equals(ConstantWeChat.EVENT_TYPE_SUBSCRIBE)) {
 					respContent = "欢迎关注微信号";
