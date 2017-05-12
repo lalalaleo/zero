@@ -1,5 +1,5 @@
 {
-	"北京":{"东城区":["清华大学医学部"],"西城区":null,"崇文区":null,"宣武区":null,"朝阳区":null,"海淀区":["北京大学"],"丰台区":null,"石景山区":null,"房山区":null,"通州区":null,"顺义区":null,"昌平区":null,"大兴区":null,"怀柔区":null,"平谷区":null,"门头沟区":null,"密云县":null,"延庆县":null},
+	"北京":{"东城区":null,"西城区":null,"崇文区":null,"宣武区":null,"朝阳区":null,"海淀区":null,"丰台区":null,"石景山区":null,"房山区":null,"通州区":null,"顺义区":null,"昌平区":null,"大兴区":null,"怀柔区":null,"平谷区":null,"门头沟区":null,"密云县":null,"延庆县":null},
 	"天津":{"和平区":null,"河东区":null,"河西区":null,"南开区":null,"河北区":null,"红桥区":null,"东丽区":null,"西青区":null,"北辰区":null,"津南区":null,"武清区":null,"宝坻区":null,"滨海新区":null,"静海县":null,"宁河县":null,"蓟县":null},
 	"上海":{"黄浦区":null,"卢湾区":null,"徐汇区":null,"长宁区":null,"静安区":null,"普陀区":null,"闸北区":null,"虹口区":null,"杨浦区":null,"闵行区":null,"宝山区":null,"嘉定区":null,"浦东新区":null,"金山区":null,"松江区":null,"青浦区":null,"奉贤区":null,"崇明县":null},
 	"重庆":{"渝中区":null,"大渡口区":null,"江北区":null,"南岸区":null,"北碚区":null,"渝北区":null,"巴南区":null,"长寿区":null,"双桥区":null,"沙坪坝区":null,"万盛区":null,"万州区":null,"涪陵区":null,"黔江区":null,"永川区":null,"合川区":null,"江津区":null,"九龙坡区":null,"南川区":null,"綦江县":null,"潼南县":null,"荣昌县":null,"璧山县":null,"大足县":null,"铜梁县":null,"梁平县":null,"开县":null,"忠县":null,"城口县":null,"垫江县":null,"武隆县":null,"丰都县":null,"奉节县":null,"云阳县":null,"巫溪县":null,"巫山县":null,"石柱土家族自治县":null,"秀山土家族苗族自治县":null,"酉阳土家族苗族自治县":null,"彭水苗族土家族自治县":null},
@@ -9,7 +9,7 @@
 	"吉林":{"长春":null,"吉林":null,"四平":null,"辽源":null,"通化":null,"白山":null,"松原":null,"白城":null,"延边朝鲜族自治州":null},
 	"黑龙江":{"哈尔滨":null,"齐齐哈尔":null,"鹤岗":null,"双鸭山":null,"鸡西":null,"大庆":null,"伊春":null,"牡丹江":null,"佳木斯":null,"七台河":null,"黑河":null,"绥化":null,"大兴安岭":null},
 	"江苏":{"南京":null,"苏州":null,"无锡":null,"常州":null,"镇江":null,"南通":null,"泰州":null,"扬州":null,"盐城":null,"连云港":null,"徐州":null,"淮安":null,"宿迁":null},
-	"浙江":{"杭州":["浙江大学","浙江大学城市学院","杭州电子科技大学"],"宁波":null,"温州":null,"嘉兴":null,"湖州":null,"绍兴":null,"金华":null,"衢州":null,"舟山":null,"台州":null,"丽水":null},
+	"浙江":{"杭州":null,"宁波":null,"温州":null,"嘉兴":null,"湖州":null,"绍兴":null,"金华":null,"衢州":null,"舟山":null,"台州":null,"丽水":null},
 	"安徽":{"合肥":null,"芜湖":null,"蚌埠":null,"淮南":null,"马鞍山":null,"淮北":null,"铜陵":null,"安庆":null,"黄山":null,"滁州":null,"阜阳":null,"宿州":null,"巢湖":null,"六安":null,"亳州":null,"池州":null,"宣城":null},
 	"福建":{"福州":null,"厦门":null,"莆田":null,"三明":null,"泉州":null,"漳州":null,"南平":null,"龙岩":null,"宁德":null},
 	"江西":{"南昌":null,"景德镇":null,"萍乡":null,"九江":null,"新余":null,"鹰潭":null,"赣州":null,"吉安":null,"宜春":null,"抚州":null,"上饶":null},
@@ -32,5 +32,7 @@
 	"新疆维吾尔自治区":{"乌鲁木齐":null,"克拉玛依":null,"吐鲁番":null,"哈密":null,"和田":null,"阿克苏":null,"喀什":null,"克孜勒苏":null,"巴音郭楞":null,"昌吉":null,"博尔塔拉":null,"伊犁":null,"塔城":null,"阿勒泰":null},
 	"香港":{"香港岛":null,"九龙东":null,"九龙西":null,"新界东":null,"新界西":null},
 	"澳门":{"澳门半岛":null,"离岛":null},
-	"台湾":{"台北":null,"高雄":null,"基隆":null,"新竹":null,"台中":null,"嘉义":null,"台南市":null}
+	"台湾":{"台北":null,"高雄":null,"基隆":null,"新竹":null,"台中":null,"嘉义":null,"台南市":null},
+	"山南":{"夏口":["夏口大学"]},
+	"汉东":{"京州":["樱花大学","汉东大学","政法大学"],"林城":["林城大学"]}
 }
