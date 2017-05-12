@@ -12,6 +12,9 @@ function contentLayout(){
     $(".content-left").css({
         "height":$(window).height()+"px"
     });
+    $(".content-center").css({
+        "height":$(window).height()+"px"
+    });
     $(".content-right").css({
         "height":$(window).height()+"px"
     });
@@ -24,7 +27,6 @@ $(document).ready(function(){
     contentLayout();
     createNewPage();
     getData();
-    // getUrlData();
 });
 
 // 获取url中参数
@@ -43,7 +45,7 @@ function getUrlData(){
 }
 // 获取数据
 function getData(){
-    var openid = "12345";
+    var openid = "oHU1c09lJWPR63kWu0fEfX1Kf1PI ";
     classTools.getList(openid);
     messageTools.loadPage();
     messageTools.initPage();
@@ -67,8 +69,8 @@ var classTools = {
             ]
         */
         $.ajax({
-            url: "./content/assets/json/test_message_classes.json",
-                type: "get",
+            url: "sendfindclazz.do",
+                type: "post",
                 data: {
                 	"openId": openid
                 	},
@@ -133,8 +135,8 @@ var studentTools = {
             ]
         */
         $.ajax({
-            url: "./content/assets/json/test_message_students.json",
-                type: "get",
+            url: "sendfindstudent.do",
+                type: "post",
                 data: {
                 	"claId": classTools.checked
                 	},
@@ -230,7 +232,7 @@ var messageTools = {
     "loadPage":function(){
         var html = document.getElementById("messagePage").innerHTML;
         var source = html.replace(reg, function (node, key) { return {}[key]; });
-        $(".content-right").append(source);
+        $(".content-center").append(source);
         createNewPage();
     },
     "initPage":function(){
@@ -255,28 +257,61 @@ var messageTools = {
     },
     "submit":function(){
         var openid = getUrlParam("openid");
-        var addresseeList = "[";
+        var addresseeList = "";
         for(var i in this.list){
             addresseeList = addresseeList+this.list[i].studentID+",";
         }
         addresseeList = addresseeList+"]";
         var message = $("#messageBox").children(".weui-cell__bd").children("textarea").val();
-        var data = "openid="+openid+"&addresseeList="+addresseeList+"&message="+message;
+        var data = "openId="+openid+"&addresseeList="+addresseeList+"&message="+message+"&classid="+classTools.checked;
         //data数据大概是这样的：
         //openid=1111&addresseeList=[001,002,003,]&message=hello world
         $.ajax({
-            url: "",
+            url: "sendmessage.do",
                 type: "post",
                 data: data,
                 dataType: "JSON",
                 success: function(data) {
-                    goErrorPage();
+                    $("#toast").css({
+                        "opacity": 1, 
+                        "display":"block"
+                    });
+                    setTimeout( function nonewarn(){ 
+                        $("#toast").css({
+                            "opacity":0,
+                            "display":"none"
+                        });
+                    } ,2000);
                 },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
         });
     }
 }
 // 跳转至error页
 function goErrorPage(){
     window.location.href="./state.html?state=1&info=1";
+}
+function change(){
+    $("#call").children(".weui-cell__bd").children(".weui-label-in").css("display","none");
+    $("#call").children(".weui-cell__bd").children(".weui-input").val($("#call").children(".weui-cell__bd").children(".weui-label-in").text());
+    $("#call").children(".weui-cell__bd").children(".weui-input").css("display","");
+    $("#call").children(".weui-cell__bd").children(".weui-input").focus();
+    $("#email").children(".weui-cell__bd").children(".weui-label-in").css("display","none");
+    $("#email").children(".weui-cell__bd").children(".weui-input").val($("#email").children(".weui-cell__bd").children(".weui-label-in").text());
+    $("#email").children(".weui-cell__bd").children(".weui-input").css("display","");
+    $("#change").css("display","none");
+    $("#ok").css("display","inline-block");
+}
+function ok(){
+    $("#call").children(".weui-cell__bd").children(".weui-input").css({"display":"none"});
+    $("#call").children(".weui-cell__bd").children(".weui-label-in").text($("#call").children(".weui-cell__bd").children(".weui-input").val());
+    $("#call").children(".weui-cell__bd").children(".weui-label-in").css({"display":""});
+
+    $("#email").children(".weui-cell__bd").children(".weui-input").css("display","none");
+    $("#email").children(".weui-cell__bd").children(".weui-label-in").text($("#email").children(".weui-cell__bd").children(".weui-input").val());
+    $("#email").children(".weui-cell__bd").children(".weui-label-in").css("display","");
+    $("#ok").css("display","none");
+    $("#change").css("display","inline-block");
 }

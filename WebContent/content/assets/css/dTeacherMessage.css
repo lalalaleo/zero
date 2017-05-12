@@ -15,10 +15,20 @@
     box-sizing: border-box;
 	border-right: 2px solid #D9D9D9;
 }
+.content-center {
+    position: relative;
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    border-left: 2px solid #D9D9D9;
+}
 .content-right {
     position: relative;
     float: left;
-    width: 70%;
+    width: 20%;
     box-sizing: border-box;
     border-left: 2px solid #D9D9D9;
+}
+.weui-cell__hd_d {
+    width: 80px;
 }
