@@ -256,7 +256,7 @@ var messageTools = {
         this.getList();
     },
     "submit":function(){
-        var openid = getUrlParam("openid");
+        var openid = "oHU1c09lJWPR63kWu0fEfX1Kf1PI";
         var addresseeList = "";
         for(var i in this.list){
             addresseeList = addresseeList+this.list[i].studentID+",";
@@ -284,7 +284,7 @@ var messageTools = {
                     } ,2000);
                 },
                 error: function() {
-                    goStatePage(3,1);
+                    alert("error");
                 }
         });
     }
