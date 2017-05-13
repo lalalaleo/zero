@@ -6,7 +6,7 @@ function createNewPage(){
 }
 
 $(document).ready(function(){
-    getJSONObject();
+    getUrlData();
 });
 // 获取url中参数
 function getUrlParam(name) {
@@ -15,51 +15,70 @@ function getUrlParam(name) {
     if (r != null) return unescape(r[2]); return null;
 }
 // 获取数据
-function getJSONObject(){
+// 修改url
+// 修改type为post
+// data发送的用户openid
+// success中不需要修改
+// 预期获取数据:
+/*
+    [
+        {
+            "openid" : ,
+            "name" : "",
+        },
+        {
+            "openid" : ,
+            "name" : "",
+        }
+    ]
+*/
+function getUrlData(){
     var openid = getUrlParam("openid");
-    if(openid==null || openid=="") goErrorPage();
+    if(openid==null || openid=="") goStatePage(2,2);
     else{
         $.ajax({
-                url: "./content/assets/json/test_teacher.json",
-                type: "get",
-                data: openid,
+                url: "listhavetea.do",
+                type: "post",
+                data: {
+                	"openId": openid
+                	},
                 dataType: "JSON",
                 success: function(data) {
                                 loadTeacherListPage(data);
                             },
-                error: function() {alert("error");}
+                error: function() {
+                    goStatePage(3,1);
+                }
             });
     }
 }
 //加载教师列表页面
 function loadTeacherListPage(data){
-    if(data==null) goErrorPage();
-    else{
         var html = document.getElementById("teacherListPage").innerHTML;
-        var source = html.replace(reg, function (node, key) { return {}[key]; });
+        var source = html.replace(reg,function (node, key) { return {}[key]; });
         $("#loading").remove();
         $(document.body).append(source);
         createNewPage();
-        initPage(data)
-    }
+        initPage(data);
 }
 // 初始化页面
 function initPage(data){
     var html = document.getElementById("teacherListCell").innerHTML;
     for(var key in data){
         $("#noTeacher").remove();
-        var userID = data[key].openid;
+        var tOpenid = data[key].openid;
         var tName = data[key].name;
-        var source = html.replace(reg, function (node, key) { return { 'userID': userID,"teacherName":tName }[key]; });
+        var source = html.replace(reg, function (node, key) { return { 'teacherOpenid': tOpenid,"teacherName":tName }[key]; });
         $(".page .page__bd .weui-cells").append(source);
     }
 }
 // 列表Cell点击事件
 function goTeacherPage(argument) {
-    var openid = $(argument).children(".input-data__hide").val();
-    window.location.href="./teacher.html?openid="+openid;
+    var openid = getUrlParam("openid");
+    var teacherid = $(argument).children(".input-data__hide").val();
+    window.location.href="./teacher.html?openid="+openid+"&teacherid="+teacherid;
 }
-// 跳转至error页
-function goErrorPage(){
-    window.location.href="./state.html?state=1&info=1";
+// 跳转至state页
+function goStatePage(state,content){
+    window.location.href="./state.html?state="+state+"&info="+content;
 }

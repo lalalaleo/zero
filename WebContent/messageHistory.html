@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>课程</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="./content/assets/css/weui.min.css">
+    <link rel="stylesheet" href="./content/assets/css/default.css">
+</head>
+<body touchstart>
+    <!--Loading状态-->
+    <div class="page" id="loading">
+        <div class="page__hd">
+            <center><h1 class="page__title">Loading...</h1></center>
+        </div>
+    </div>    
+
+    <div class="weui-footer weui-footer_fixed-bottom">
+        <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+    </div>
+</body>
+
+<script type="text/javascript" src="./content/assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./content/assets/js/layout.js"></script>
+<script type="text/javascript" src="./content/assets/js/messageHistory.js"></script>
+
+<script type="text/html" id="messageHistoryPage">
+    <div class="page" id="messageHistory">
+        <div class="page__hd">
+            <h1 class="page__title">历史消息</h1>
+            <p class = "page__desc"></p>
+        </div>
+        <div class="page__bd">
+            
+        </div>
+    </div>
+</script>
+
+<!--消息卡片-->
+<script type="text/html" id="messagePreview">
+    <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+            <div class="weui-form-preview__item">
+                <input class="input-data__hide" value=[msgid]>
+                <label class="weui-form-preview__label default_text">[class]</label>
+            </div>
+        </div>
+        <div class="weui-form-preview__bd default_text">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">发信人</label>
+                <span class="weui-form-preview__value">[sender]</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">内容</label>
+                <span class="weui-form-preview__value">[content]</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">时间</label>
+                <span class="weui-form-preview__value">[time]</span>
+            </div>
+        </div>
+        <div class="weui-form-preview__ft">
+            <a class="weui-form-preview__btn weui-form-preview__btn_primary" href="javascript:">回复</a>
+        </div>
+    </div>
+    <br />
+</script>
+
+</html>

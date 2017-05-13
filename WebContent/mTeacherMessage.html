@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="./content/assets/css/weui.min.css">
+    <link rel="stylesheet" href="./content/assets/css/default.css">
+</head>
+<body touchstart>
+
+    <!--Loading状态-->
+    <div class="page" id="loading">
+        <div class="page__hd">
+            <center><h1 class="page__title">Loading...</h1></center>
+        </div>
+    </div>
+
+    <div class="weui-footer weui-footer_fixed-bottom">
+        <p class="weui-footer__text">Copyright © 2008-2016 weui.io</p>
+    </div>
+
+</body>
+<script type="text/javascript" src="./content/assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./content/assets/js/layout.js"></script>
+<script type="text/javascript" src="./content/assets/js/mTeacherMessage.js"></script>
+
+<!--班级Item-->
+<script type="text/html" id="classItem">
+    <a class="weui-cell weui-cell_access" href="javascript:;" onclick="classTools.click(this)">
+        <input class="input-data__hide" value=[classID] />
+        <div class="weui-cell__bd"><p>[className]</p></div>
+        <div class="weui-cell__ft"></div>
+    </a>
+</script>
+<!--选择班级页面-->
+<script type="text/html" id="selectClassPage">
+    <div class="page" id="selectClass">
+        <div class="page__hd">
+            <h1 class="page__title">选择班级</h1>
+        </div>
+        <div class="page__bd">
+            <div class="weui-cells__title">班级列表</div>
+            <div class="weui-cells" id="classList">
+            </div>
+        </div>
+    </div>
+</script>
+<!--学生Item-->
+<script type="text/html" id="studentItem">
+    <label class="weui-cell weui-check__label" >
+        <div class="weui-cell__hd">
+            <input type="checkbox" class="weui-check" name="checkbox" onclick="studentTools.click(this)">
+            <i class="weui-icon-checked"></i>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="input-data__hide" name="studentID" value=[studentID] />
+            <p>[studentName]</p>
+        </div>
+    </label>
+</script>
+<!--选择学生页面-->
+<script type="text/html" id="selectStudentPage">
+    <div class="page" id="selectStudent">
+        <div class="page__hd">
+            <h1 class="page__title">选择学生</h1>
+        </div>
+        <div class="page__tool">
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_primary" onclick="studentTools.selectAll()">全选</a>
+            <a href="javascript:;" class="weui-btn weui-btn_mini weui-btn_warn" onclick="studentTools.clearCheckList()">清空</a>
+        </div>
+        <div class="page__bd">
+            <div class="weui-cells__title">学生列表</div>
+            <div class="weui-cells weui-cells_checkbox" id="studentList">
+            </div>
+        </div>
+        <div class="page__ft">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" onclick="studentTools.next()">确定</a>
+        </div>
+    </div>
+</script>
+<!--发送消息页面-->
+<script type="text/html" id="messagePage">
+    <div class="page" id="message">
+        <div class="page__bd">
+            <div class="weui-cells__title">收信人</div>
+            <div class="weui-cells__function" id="addresseeList">
+            </div>
+            <div class="weui-cells__title">消息</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell" id="messageBox">
+                    <div class="weui-cell__bd">
+                        <textarea class="weui-textarea" placeholder="请输入文本" rows="10" maxlength="200"></textarea>
+                        <div class="weui-textarea-counter"><span>0</span>/200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page__ft">
+            <a href="javascript:;" class="weui-btn weui-btn_primary" onclick="messageTools.submit()">发送</a>
+        </div>
+    </div>
+</script>
+</html>

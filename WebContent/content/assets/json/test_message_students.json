@@ -1,0 +1,17 @@
+[
+    {
+        "name":"张三",
+        "number":"3100001",
+        "studentid":"001"
+    },
+    {
+        "name":"李四",
+        "number":"3100002",
+        "studentid":"002"
+    },
+    {
+        "name":"王五",
+        "number":"3100003",
+        "studentid":"003"
+    }
+]

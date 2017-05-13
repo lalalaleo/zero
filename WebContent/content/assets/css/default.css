@@ -31,10 +31,12 @@ div {
 	padding: 0;
 }
 .page__tool {
-	padding:10px 20px 10px;
+	padding:10px 20px 0 20px;
 	text-align: right;
 }
 .page__ft {
+	padding-left: 14px;
+	padding-right: 14px;
 	margin-top: 50px;
 }
 .weui-label-in{
@@ -47,6 +49,49 @@ div {
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+.weui-cells__function {
+	background: #FFFFFF;
+	height: 150px;
+	padding: 10px 14px;
+	margin: 10px 0;
+	overflow-y: auto;
+}
+.weui-cells__function button {
+	background-color:#1AAD19;
+	border: 0;
+	border-radius: 40px;
+	margin: 3px;
+	outline:none;
+}
+.weui-cells__function button:active {
+	background-color: #179B16; 
+}
+.weui-cells__function button p {
+	color:white;
+	text-align: center;
+	line-height: 2.3;
+	margin: 0 5px;
+	padding: 0 10px;
+	font-size: 16px;
+}
 .input-data__hide {
 	display: none;
+}
+.now-class {
+	background-color:#1AAD19;
+	color:#FFFFFF;
+}
+.now-class p {
+	color:#FFFFFF;
+}
+.ago-class {
+	background: #F8F8F8;
+	color:#888;
+}
+.ago-class p {
+	color:#888;
+}
+.default_text {
+	color:black;
+	text-align: left;
 }

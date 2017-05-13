@@ -9,89 +9,13 @@
 </head>
 
 <body touchstart>
-    <script type="text/javascript" src="./content/assets/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="./content/assets/js/layout.js"></script>
-    <script type="text/javascript" src="./content/assets/js/binding.js"></script>
-
-    <div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;" id="warn">错误提示</div>
-    
-    <div class="page" id="binding">
-
+    <!--异常提醒-->
+    <div class="weui-toptips weui-toptips_warn js_tooltips" style="display: none;" id="warn"></div>
+    <!--Loading状态-->
+    <div class="page" id="loading">
         <div class="page__hd">
-            <h1 class="page__title">欢迎进行绑定</h1>
-            <p class="page__desc">完善您的信息与微信号进行绑定</p>
+            <center><h1 class="page__title">Loading...</h1></center>
         </div>
-        
-        <div class="page__bd">
-
-            <div class="weui-cells__title">请认真填写以下信息，以保证认证顺利</div>
-            <div class="weui-cells weui-cells_form">
-                <div class="weui-cell">
-                    <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
-                    <div class="weui-cell__bd">
-                        <input class="weui-input"  placeholder="请输入您的姓名" id="name">
-                    </div>
-                    <div class="weui-cell__ft" >
-                        <i class="weui-icon-warn" style="display: none" id="name-warn"></i>
-                    </div>
-                </div>
-                <div class="weui-cell">
-                    <div class="weui-cell__hd"><label class="weui-label" >学号/工号</label></div>
-                    <div class="weui-cell__bd">
-                        <input class="weui-input"  type="number" placeholder="请输入您的学号/工号" id="number">
-                    </div>
-                    <div class="weui-cell__ft" >
-                        <i class="weui-icon-warn" style="display: none" id="number-warn"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="weui-cells__title">请选择您的学校</div>
-            <div class="weui-cells">
-                <div class="weui-cell weui-cell_select weui-cell_select-after">
-                    <div class="weui-cell__hd">
-                        <label for="" class="weui-label">省/自治区</label>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <select class="weui-select" name="select-province" id="select-province" >
-                        </select>
-                    </div>
-                </div>
-                <div class="weui-cell weui-cell_select weui-cell_select-after">
-                     <div class="weui-cell__hd">
-                        <label for="" class="weui-label">市/直辖市</label>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <select class="weui-select" name="select-city" id="select-city"  >
-                        </select>
-                    </div>
-                </div>
-                <div class="weui-cell weui-cell_select weui-cell_select-after">
-                    <div class="weui-cell__hd">
-                        <label for="" class="weui-label">学校</label>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <select class="weui-select" name="select-school" id="select-school">
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <label for="weuiAgree" class="weui-agree">
-                <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox">
-                    <span class="weui-agree__text" >
-                        阅读并同意<a href="javascript:void(0);">《相关条款》</a>
-                    </span>
-            </label>
-
-        </div>
-
-        <div class="page__ft">
-            <div class="weui-btn-area">
-                 <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips"  type="button">确定</a>
-            </div>
-        </div>
-
     </div>
 
     <div class="weui-footer weui-footer_fixed-bottom">
@@ -99,4 +23,69 @@
     </div>
     
 </body>
+
+<script type="text/javascript" src="./content/assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="./content/assets/js/layout.js"></script>
+<script type="text/javascript" src="./content/assets/js/binding.js"></script>
+
+<script type="text/html" id="bindingPage">
+    <div class="page" id="binding">
+        <div class="page__hd">
+            <h1 class="page__title">欢迎进行绑定</h1>
+            <p class="page__desc">完善您的信息与微信号进行绑定</p>
+        </div>
+        
+        <div class="page__bd">
+            <div class="weui-cells__title">请认真填写以下信息，以保证认证顺利</div>
+            <div class="weui-cells weui-cells_form">
+
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                    <div class="weui-cell__bd"><input class="weui-input"  placeholder="请输入您的姓名" id="name" /></div>
+                    <div class="weui-cell__ft" ><i class="weui-icon-warn" style="display: none" id="name-warn"></i></div>
+                </div>
+
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label" >学号/工号</label></div>
+                    <div class="weui-cell__bd"><input class="weui-input"  type="number" placeholder="请输入您的学号/工号" id="number" /></div>
+                    <div class="weui-cell__ft" ><i class="weui-icon-warn" style="display: none" id="number-warn"></i></div>
+                </div>
+
+            </div>
+
+            <div class="weui-cells__title">请选择您的学校</div>
+            <div class="weui-cells">
+
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                    <div class="weui-cell__hd"><label for="" class="weui-label">省/自治区</label></div>
+                    <div class="weui-cell__bd"><select class="weui-select" name="select-province" id="select-province" ><option /></select></div>
+                </div>
+
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                     <div class="weui-cell__hd"><label for="" class="weui-label">市/直辖市</label></div>
+                    <div class="weui-cell__bd"><select class="weui-select" name="select-city" id="select-city"  ><option /></select></div>
+                </div>
+
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                    <div class="weui-cell__hd"><label for="" class="weui-label">学校</label></div>
+                    <div class="weui-cell__bd"><select class="weui-select" name="select-school" id="select-school"><option /></select></div>
+                </div>
+
+            </div>
+
+            <label for="weuiAgree" class="weui-agree">
+                <input id="weuiAgree" type="checkbox" class="weui-agree__checkbox" onclick="agree(this)">
+                <span class="weui-agree__text" >阅读并同意<a href="javascript:void(0);">《相关条款》</a></span>
+            </label>
+
+        </div>
+
+        <div class="page__ft">
+            <div class="weui-btn-area">
+                 <a class="weui-btn weui-btn_disabled weui-btn_primary" href="javascript:" id="submit"  type="button">确定</a>
+            </div>
+        </div>
+    </div>
+</script>
+
 </html>
